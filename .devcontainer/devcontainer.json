@@ -1,0 +1,27 @@
+{
+    "name": "flutter",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    "mounts": [
+        "source=/dev/bus/usb,target=/dev/bus/usb,type=bind"
+    ],
+    "settings": {
+        "terminal.integrated.profiles.linux": {
+            "bash": {
+                "path": "bash",
+                "icon": "terminal-bash"
+            },
+        }
+    },
+    "runArgs": [
+        "--privileged"
+    ],
+    "extensions": [
+        "vivaxy.vscode-conventional-commits",
+        "dart-code.dart-code",
+        "dart-code.flutter",
+        "gitHub.vscode-pull-request-github"
+    ],
+}
