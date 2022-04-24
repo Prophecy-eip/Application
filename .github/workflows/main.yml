@@ -6,27 +6,31 @@ on:
 
 jobs:
   analyze:
+    defaults:
+      run:
+        working-directory: prophecy/
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: subosito/flutter-action@v2.3.0
       - run: flutter analyze
-        working-directory: prophecy
   test:
+    defaults:
+      run:
+        working-directory: prophecy/
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: subosito/flutter-action@v2.3.0
       - run: flutter test
-        working-directory: prophecy
   build-android:
+    defaults:
+      run:
+        working-directory: prophecy/
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: subosito/flutter-action@v2.3.0
       - run: flutter clean
-        working-directory: prophecy
       - run: flutter pub get
-        working-directory: prophecy
       - run: flutter build appbundle
-        working-directory: prophecy
