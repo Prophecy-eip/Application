@@ -1,7 +1,7 @@
 FROM debian:latest
 
 # Packages
-RUN apt update && apt install -y curl git unzip xz-utils zip libglu1-mesa openjdk-11-jdk wget
+RUN apt-get update && apt-get install -y curl git unzip xz-utils zip libglu1-mesa openjdk-11-jdk wget
 
 # User
 RUN useradd -ms /bin/bash dbruno
