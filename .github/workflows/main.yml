@@ -24,7 +24,7 @@ jobs:
       - uses: subosito/flutter-action@v2.3.0
       - run: flutter test --coverage
       - run: sudo apt-get install lcov
-      - run: lcov --summary coverage/
+      - run: lcov --summary coverage/lcov.info
   build-android:
     defaults:
       run:
