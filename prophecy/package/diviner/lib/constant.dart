@@ -16,4 +16,7 @@ class AccountEndPoints {
   static String shareStatistic = '/account/profile/statistics/share-statistic/';
   static String unshareStatistic =
       '/account/profile/statistics/unshare-statistic/';
+  static String createPost = '/account/profile/posts/create-post';
+  static String updatePost = '/account/profile/posts/update-post/';
+  static String deletePost = '/account/profile/posts/delete-post/';
 }

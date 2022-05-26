@@ -238,3 +238,53 @@ class UnshareStatisticService {
     return null;
   }
 }
+
+class CreatePostService {
+  Future<String?> createPost(PostPayloadModel post) async {
+    try {
+      var url = Uri.parse(baseUrl + AccountEndPoints.createPost);
+      var response = await http.post(url, body: post.toJson());
+      if (response.statusCode == 201) {
+        String _model = response.body;
+        return _model;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+}
+
+class UpdatePostService {
+  Future<int?> updatePost(
+      String bearerToken, String postId, PostPayloadModel post) async {
+    try {
+      var url = Uri.parse(baseUrl + AccountEndPoints.updatePost + postId);
+      var response = await http.put(url,
+          headers: {'Authorization': 'Bearer $bearerToken'},
+          body: post.toJson());
+      if (response.statusCode == 200) {
+        return response.statusCode;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+}
+
+class DeletePostService {
+  Future<int?> deletePost(String bearerToken, String postId) async {
+    try {
+      var url = Uri.parse(baseUrl + AccountEndPoints.deletePost + postId);
+      var response = await http
+          .put(url, headers: {'Authorization': 'Bearer $bearerToken'});
+      if (response.statusCode == 200) {
+        return response.statusCode;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+}
