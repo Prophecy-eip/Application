@@ -243,8 +243,7 @@ class CreatePostService {
           headers: {'Authorization': 'Bearer $bearerToken'},
           body: post.toJson());
       if (response.statusCode == 201) {
-        String _model = response.body;
-        return _model;
+        return response.body;
       }
     } catch (e) {
       log(e.toString());

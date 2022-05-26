@@ -55,8 +55,8 @@ class GetOrganisationsService {
         headers: {'Authorization': 'Bearer $bearerToken'},
       );
       if (response.statusCode == 200) {
-        List<Organisation> _organisation = organisationFromJson(response.body);
-        return _organisation;
+        List<Organisation> _model = organisationFromJson(response.body);
+        return _model;
       }
     } catch (e) {
       log(e.toString());
@@ -95,8 +95,8 @@ class GetUnitService {
         headers: {'Authorization': 'Bearer $bearerToken'},
       );
       if (response.statusCode == 200) {
-        Unit _unit = unitFromJson(response.body);
-        return _unit;
+        Unit _model = unitFromJson(response.body);
+        return _model;
       }
     } catch (e) {
       log(e.toString());
@@ -138,8 +138,8 @@ class GetUnitModifierService {
         headers: {'Authorization': 'Bearer $bearerToken'},
       );
       if (response.statusCode == 200) {
-        Modifier _modifiers = modifierFromJson(response.body);
-        return _modifiers;
+        Modifier _model = modifierFromJson(response.body);
+        return _model;
       }
     } catch (e) {
       log(e.toString());
@@ -180,8 +180,8 @@ class GetArmyModifierService {
         headers: {'Authorization': 'Bearer $bearerToken'},
       );
       if (response.statusCode == 200) {
-        Modifier _modifiers = modifierFromJson(response.body);
-        return _modifiers;
+        Modifier _model = modifierFromJson(response.body);
+        return _model;
       }
     } catch (e) {
       log(e.toString());
@@ -221,8 +221,8 @@ class GetRuleService {
         headers: {'Authorization': 'Bearer $bearerToken'},
       );
       if (response.statusCode == 200) {
-        Rule _rule = ruleFromJson(response.body);
-        return _rule;
+        Rule _model = ruleFromJson(response.body);
+        return _model;
       }
     } catch (e) {
       log(e.toString());
