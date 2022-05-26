@@ -9,30 +9,41 @@ class AccountEndPoints {
   static String updateEmailAddress = '/account/settings/update-email-address';
   static String deleteAccount = '/account/settings/delete-account';
   static String updatePicture = '/account/profile/update-picture';
-  static String shareList = '/account/profile/armies-lists/share-list/';
-  static String unshareList = '/account/profile/armies-lists/unshare-list/';
-  static String shareGame = '/account/profile/games/share-game/';
-  static String unshareGame = '/account/profile/games/unshare-game/';
-  static String shareStatistic = '/account/profile/statistics/share-statistic/';
-  static String unshareStatistic =
-      '/account/profile/statistics/unshare-statistic/';
+  static String shareList(String listId) =>
+      '/account/profile/armies-lists/share-list/$listId';
+  static String unshareList(String listId) =>
+      '/account/profile/armies-lists/unshare-list/$listId';
+  static String shareGame(String gameId) =>
+      '/account/profile/armies-lists/share-list/$gameId';
+  static String unshareGame(String gameId) =>
+      '/account/profile/armies-lists/unshare-list/$gameId';
+  static String shareStatistic(String statisticId) =>
+      '/account/profile/statistics/share-statistic/$statisticId';
+  static String unshareStatistic(String statisticId) =>
+      '/account/profile/statistics/unshare-statistic/$statisticId';
   static String createPost = '/account/profile/posts/create-post';
-  static String updatePost = '/account/profile/posts/update-post/';
-  static String deletePost = '/account/profile/posts/delete-post/';
-  static String followUser = '/account/users/follow-user/';
-  static String unfollowUser = '/account/users/unfollow-user/';
-  static String blockUser = '/account/users/block-user/';
-  static String unblockUser = '/account/users/unblock-user/';
-  static String getBlockedUser = '/account/users/get-blocked-users/';
+  static String updatePost(String postId) =>
+      '/account/profile/posts/update-post/$postId';
+  static String deletePost(String postId) =>
+      '/account/profile/posts/delete-post/$postId';
+  static String followUser(String userId) =>
+      '/account/users/follow-user/$userId';
+  static String unfollowUser(String userId) =>
+      '/account/users/unfollow-user/$userId';
+  static String blockUser(String userId) => '/account/users/block-user/$userId';
+  static String unblockUser(String userId) =>
+      '/account/users/unblock-user/$userId';
+  static String getBlockedUser(String userId) =>
+      '/account/users/get-blocked-users/$userId';
 }
 
 class EventEndPoints {
   static String createEvent = '/events/create-event';
-  static String updateEvent = '/events/update-event/';
-  static String deleteEvent = '/events/delete-event/';
-  static String saveEvent = '/events/save-event/';
-  static String unsaveEvent = '/events/unsave-event/';
-  static String getEvent = '/events/get-event/';
+  static String updateEvent(String eventId) => '/events/update-event/$eventId';
+  static String deleteEvent(String eventId) => '/events/delete-event/$eventId';
+  static String saveEvent(String eventId) => '/events/save-event/$eventId';
+  static String unsaveEvent(String eventId) => '/events/unsave-event/$eventId';
+  static String getEvent(String eventId) => '/events/get-event/$eventId';
   static String getEvents = '/events/get-events';
   static String getSavedEvents = '/events/get-saved-events';
 }
@@ -40,7 +51,8 @@ class EventEndPoints {
 class ArmyEndPoints {
   static String getArmies = '/armies/get-armies';
   static String getName(String armyId) => '/armies/$armyId/get-name';
-  static String getOrganisations(String armyId) => '/armies/$armyId/get-organisation';
+  static String getOrganisations(String armyId) =>
+      '/armies/$armyId/get-organisation';
   static String getUnits(String armyId) => '/armies/$armyId/units/get-units';
   static String getUnit(String armyId, String unitId) =>
       '/armies/$armyId/units/get-unit/$unitId';
