@@ -30,3 +30,30 @@ class UserCredentialsPayloadModel {
         "password": password,
       };
 }
+
+PostPayloadModel postPayloadModelFromJson(String str) =>
+    PostPayloadModel.fromJson(json.decode(str));
+
+String postPayloadModelToJson(PostPayloadModel data) =>
+    json.encode(data.toJson());
+
+class PostPayloadModel {
+  PostPayloadModel({
+    required this.description,
+    required this.pictures,
+  });
+
+  String description;
+  List<String> pictures;
+
+  factory PostPayloadModel.fromJson(Map<String, dynamic> json) =>
+      PostPayloadModel(
+        description: json["description"],
+        pictures: List<String>.from(json["pictures"].map((x) => x)),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "description": description,
+        "pictures": List<dynamic>.from(pictures.map((x) => x)),
+      };
+}
