@@ -69,3 +69,8 @@ class ArmyEndPoints {
   static String getRule(String armyId, String ruleId) =>
       '/armies/$armyId/rules/get-rule/$ruleId';
 }
+
+class ProphecyEndPoints {
+  static String getProphecy = '/prophecies/get-prophecy';
+  static String getHistory = '/prophecies/get-history';
+}
