@@ -140,3 +140,35 @@ class UpdatePictureService {
     return null;
   }
 }
+
+class ShareListService {
+  Future<int?> shareList(String bearerToken, String listId) async {
+    try {
+      var url = Uri.parse(baseUrl + AccountEndPoints.shareList + listId);
+      var response = await http
+          .put(url, headers: {'Authorization': 'Bearer $bearerToken'});
+      if (response.statusCode == 200) {
+        return response.statusCode;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+}
+
+class UnshareListService {
+  Future<int?> unshareList(String bearerToken, String listId) async {
+    try {
+      var url = Uri.parse(baseUrl + AccountEndPoints.unshareList + listId);
+      var response = await http
+          .put(url, headers: {'Authorization': 'Bearer $bearerToken'});
+      if (response.statusCode == 200) {
+        return response.statusCode;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+}
