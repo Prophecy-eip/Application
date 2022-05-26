@@ -2,9 +2,9 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 
-import 'package:diviner/constant.dart';
 import 'package:http/http.dart' as http;
 
+import '../constant.dart';
 import '../model/response/account.dart';
 import '../model/payload/account.dart';
 
@@ -32,7 +32,7 @@ class SignUpService {
     try {
       var url = Uri.parse(baseUrl + AccountEndPoints.signUp);
       var response = await http.post(url, body: credentials.toJson());
-      if (response.statusCode == 200) {
+      if (response.statusCode == 201) {
         ServerCredentialsResponseModel _model =
             serverCredentialsModelFromJson(response.body);
         return _model;
@@ -241,10 +241,12 @@ class UnshareStatisticService {
 }
 
 class CreatePostService {
-  Future<String?> createPost(PostPayloadModel post) async {
+  Future<String?> createPost(String bearerToken, PostPayloadModel post) async {
     try {
       var url = Uri.parse(baseUrl + AccountEndPoints.createPost);
-      var response = await http.post(url, body: post.toJson());
+      var response = await http.post(url,
+          headers: {'Authorization': 'Bearer $bearerToken'},
+          body: post.toJson());
       if (response.statusCode == 201) {
         String _model = response.body;
         return _model;
