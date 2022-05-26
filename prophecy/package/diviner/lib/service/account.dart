@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:diviner/constant.dart';
 import 'package:http/http.dart' as http;
@@ -114,6 +115,22 @@ class DeleteAccountService {
       var url = Uri.parse(baseUrl + AccountEndPoints.deleteAccount);
       var response = await http
           .delete(url, headers: {'Authorization': 'Bearer $bearerToken'});
+      if (response.statusCode == 200) {
+        return response.statusCode;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+}
+
+class UpdatePictureService {
+  Future<int?> updatePicture(String bearerToken, File picture) async {
+    try {
+      var url = Uri.parse(baseUrl + AccountEndPoints.updatePicture);
+      var response = await http.put(url,
+          headers: {'Authorization': 'Bearer $bearerToken'}, body: picture);
       if (response.statusCode == 200) {
         return response.statusCode;
       }
