@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 
 import '../constant.dart';
 import '../model/army.dart';
+import '../model/unit.dart';
 
 class GetArmiesService {
   Future<List<String>?> getArmies(String bearerToken) async {

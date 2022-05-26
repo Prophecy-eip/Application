@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 
 import '../constant.dart';
 import '../model/account.dart';
+import '../model/post.dart';
 
 class SignInService {
   Future<ServerCredentials?> signIn(UserCredentials credentials) async {
