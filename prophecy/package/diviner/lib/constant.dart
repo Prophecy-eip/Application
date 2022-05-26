@@ -8,4 +8,5 @@ class AccountEndPoints {
   static String updateUsername = '/account/settings/update-username';
   static String updateEmailAddress = '/account/settings/update-email-address';
   static String deleteAccount = '/account/settings/delete-account';
+  static String updatePicture = '/account/profile/update-picture';
 }
