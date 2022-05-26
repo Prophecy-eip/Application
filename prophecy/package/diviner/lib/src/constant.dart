@@ -25,3 +25,13 @@ class AccountEndPoints {
   static String unblockUser = '/account/users/unblock-user/';
   static String getBlockedUser = '/account/users/get-blocked-users/';
 }
+
+class EventEndPoints {
+  static String createEvent = '/events/create-event';
+  static String saveEvent = '/events/save-event/';
+  static String getEvents = '/events/get-events';
+  static String getEvent = '/events/get-event/';
+  static String getSavedEvents = '/events/get-saved-events';
+  static String unsaveEvent = '/events/unsave-event/';
+  static String deleteEvent = '/events/delete-event/';
+}

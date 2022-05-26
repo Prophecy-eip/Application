@@ -5,18 +5,15 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 
 import '../constant.dart';
-import '../model/response/account.dart';
-import '../model/payload/account.dart';
+import '../model/account.dart';
 
 class SignInService {
-  Future<ServerCredentialsResponseModel?> signIn(
-      UserCredentialsPayloadModel credentials) async {
+  Future<ServerCredentials?> signIn(UserCredentials credentials) async {
     try {
       var url = Uri.parse(baseUrl + AccountEndPoints.signIn);
       var response = await http.post(url, body: credentials.toJson());
       if (response.statusCode == 200) {
-        ServerCredentialsResponseModel _model =
-            serverCredentialsModelFromJson(response.body);
+        ServerCredentials _model = serverCredentialsFromJson(response.body);
         return _model;
       }
     } catch (e) {
@@ -27,14 +24,12 @@ class SignInService {
 }
 
 class SignUpService {
-  Future<ServerCredentialsResponseModel?> signUp(
-      UserCredentialsPayloadModel credentials) async {
+  Future<ServerCredentials?> signUp(UserCredentials credentials) async {
     try {
       var url = Uri.parse(baseUrl + AccountEndPoints.signUp);
       var response = await http.post(url, body: credentials.toJson());
       if (response.statusCode == 201) {
-        ServerCredentialsResponseModel _model =
-            serverCredentialsModelFromJson(response.body);
+        ServerCredentials _model = serverCredentialsFromJson(response.body);
         return _model;
       }
     } catch (e) {
@@ -241,7 +236,7 @@ class UnshareStatisticService {
 }
 
 class CreatePostService {
-  Future<String?> createPost(String bearerToken, PostPayloadModel post) async {
+  Future<String?> createPost(String bearerToken, Post post) async {
     try {
       var url = Uri.parse(baseUrl + AccountEndPoints.createPost);
       var response = await http.post(url,
@@ -259,8 +254,7 @@ class CreatePostService {
 }
 
 class UpdatePostService {
-  Future<int?> updatePost(
-      String bearerToken, String postId, PostPayloadModel post) async {
+  Future<int?> updatePost(String bearerToken, String postId, Post post) async {
     try {
       var url = Uri.parse(baseUrl + AccountEndPoints.updatePost + postId);
       var response = await http.put(url,
