@@ -28,10 +28,11 @@ class AccountEndPoints {
 
 class EventEndPoints {
   static String createEvent = '/events/create-event';
-  static String saveEvent = '/events/save-event/';
-  static String getEvents = '/events/get-events';
-  static String getEvent = '/events/get-event/';
-  static String getSavedEvents = '/events/get-saved-events';
-  static String unsaveEvent = '/events/unsave-event/';
+  static String updateEvent = '/events/update-event/';
   static String deleteEvent = '/events/delete-event/';
+  static String saveEvent = '/events/save-event/';
+  static String unsaveEvent = '/events/unsave-event/';
+  static String getEvent = '/events/get-event/';
+  static String getEvents = '/events/get-events';
+  static String getSavedEvents = '/events/get-saved-events';
 }
