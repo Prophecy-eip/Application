@@ -13,4 +13,7 @@ class AccountEndPoints {
   static String unshareList = '/account/profile/armies-lists/unshare-list/';
   static String shareGame = '/account/profile/games/share-game/';
   static String unshareGame = '/account/profile/games/unshare-game/';
+  static String shareStatistic = '/account/profile/statistics/share-statistic/';
+  static String unshareStatistic =
+      '/account/profile/statistics/unshare-statistic/';
 }
