@@ -11,4 +11,6 @@ class AccountEndPoints {
   static String updatePicture = '/account/profile/update-picture';
   static String shareList = '/account/profile/armies-lists/share-list/';
   static String unshareList = '/account/profile/armies-lists/unshare-list/';
+  static String shareGame = '/account/profile/games/share-game/';
+  static String unshareGame = '/account/profile/games/unshare-game/';
 }
