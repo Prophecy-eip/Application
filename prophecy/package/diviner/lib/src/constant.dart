@@ -36,3 +36,8 @@ class EventEndPoints {
   static String getEvents = '/events/get-events';
   static String getSavedEvents = '/events/get-saved-events';
 }
+
+class ArmyEndPoints {
+  static String getArmies = '/armies/get-armies';
+  static String getName(String armyId) => '/armies/$armyId/get-name';
+}
