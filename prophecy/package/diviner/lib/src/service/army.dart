@@ -45,6 +45,26 @@ class GetNameService {
   }
 }
 
+class GetOrganisationsService {
+  Future<List<Organisation>?> getOrganisations(
+      String bearerToken, String armyId) async {
+    try {
+      var url = Uri.parse(baseUrl + ArmyEndPoints.getOrganisations(armyId));
+      var response = await http.get(
+        url,
+        headers: {'Authorization': 'Bearer $bearerToken'},
+      );
+      if (response.statusCode == 200) {
+        List<Organisation> _organisation = organisationFromJson(response.body);
+        return _organisation;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+}
+
 class GetUnitsService {
   Future<List<String>?> getUnits(String bearerToken, String armyId) async {
     try {
@@ -162,6 +182,47 @@ class GetArmyModifierService {
       if (response.statusCode == 200) {
         Modifier _modifiers = modifierFromJson(response.body);
         return _modifiers;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+}
+
+class GetRulesService {
+  Future<List<String>?> getUnitModifiers(
+      String bearerToken, String armyId) async {
+    try {
+      var url = Uri.parse(baseUrl + ArmyEndPoints.getRules(armyId));
+      var response = await http.get(
+        url,
+        headers: {'Authorization': 'Bearer $bearerToken'},
+      );
+      if (response.statusCode == 200) {
+        List<String> _rules =
+            List<String>.from(json.decode(response.body).map((x) => x));
+        return _rules;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+}
+
+class GetRuleService {
+  Future<Rule?> getRule(
+      String bearerToken, String armyId, String ruleId) async {
+    try {
+      var url = Uri.parse(baseUrl + ArmyEndPoints.getRule(armyId, ruleId));
+      var response = await http.get(
+        url,
+        headers: {'Authorization': 'Bearer $bearerToken'},
+      );
+      if (response.statusCode == 200) {
+        Rule _rule = ruleFromJson(response.body);
+        return _rule;
       }
     } catch (e) {
       log(e.toString());

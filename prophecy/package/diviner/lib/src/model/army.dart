@@ -471,3 +471,62 @@ class Modifier {
             .map((k, v) => MapEntry<String, dynamic>(k, v.toJson())),
       };
 }
+
+Rule ruleFromJson(String str) => Rule.fromJson(json.decode(str));
+
+String ruleToJson(Rule data) => json.encode(data.toJson());
+
+class Rule {
+  Rule({
+    required this.category,
+    required this.name,
+    required this.description,
+    required this.options,
+  });
+
+  String category;
+  String name;
+  String description;
+  List<Option> options;
+
+  factory Rule.fromJson(Map<String, dynamic> json) => Rule(
+        category: json["category"],
+        name: json["name"],
+        description: json["description"],
+        options:
+            List<Option>.from(json["options"].map((x) => Option.fromJson(x))),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "category": category,
+        "name": name,
+        "description": description,
+        "options": List<dynamic>.from(options.map((x) => x.toJson())),
+      };
+}
+
+List<Organisation> organisationFromJson(String str) => List<Organisation>.from(
+    json.decode(str).map((x) => Organisation.fromJson(x)));
+
+String organisationToJson(List<Organisation> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+
+class Organisation {
+  Organisation({
+    required this.name,
+    required this.limit,
+  });
+
+  String name;
+  Limit limit;
+
+  factory Organisation.fromJson(Map<String, dynamic> json) => Organisation(
+        name: json["name"],
+        limit: Limit.fromJson(json["limit"]),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "name": name,
+        "limit": limit.toJson(),
+      };
+}

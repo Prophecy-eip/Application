@@ -40,6 +40,7 @@ class EventEndPoints {
 class ArmyEndPoints {
   static String getArmies = '/armies/get-armies';
   static String getName(String armyId) => '/armies/$armyId/get-name';
+  static String getOrganisations(String armyId) => '/armies/$armyId/get-organisation';
   static String getUnits(String armyId) => '/armies/$armyId/units/get-units';
   static String getUnit(String armyId, String unitId) =>
       '/armies/$armyId/units/get-unit/$unitId';
@@ -52,4 +53,7 @@ class ArmyEndPoints {
       '/armies/$armyId/modifiers/get-modifiers';
   static String getArmyModifier(String armyId, modifierId) =>
       '/armies/$armyId/modifiers/get-modifier/$modifierId';
+  static String getRules(String armyId) => '/armies/$armyId/rules/get-rules';
+  static String getRule(String armyId, String ruleId) =>
+      '/armies/$armyId/rules/get-rule/$ruleId';
 }
