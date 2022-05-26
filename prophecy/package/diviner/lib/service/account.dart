@@ -172,3 +172,35 @@ class UnshareListService {
     return null;
   }
 }
+
+class ShareGameService {
+  Future<int?> shareGame(String bearerToken, String gameId) async {
+    try {
+      var url = Uri.parse(baseUrl + AccountEndPoints.shareGame + gameId);
+      var response = await http
+          .put(url, headers: {'Authorization': 'Bearer $bearerToken'});
+      if (response.statusCode == 200) {
+        return response.statusCode;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+}
+
+class UnshareGameService {
+  Future<int?> unshareGame(String bearerToken, String gameId) async {
+    try {
+      var url = Uri.parse(baseUrl + AccountEndPoints.unshareGame + gameId);
+      var response = await http
+          .put(url, headers: {'Authorization': 'Bearer $bearerToken'});
+      if (response.statusCode == 200) {
+        return response.statusCode;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+}
