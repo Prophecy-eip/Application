@@ -44,3 +44,128 @@ class GetNameService {
     return null;
   }
 }
+
+class GetUnitsService {
+  Future<List<String>?> getUnits(String bearerToken, String armyId) async {
+    try {
+      var url = Uri.parse(baseUrl + ArmyEndPoints.getUnits(armyId));
+      var response = await http.get(
+        url,
+        headers: {'Authorization': 'Bearer $bearerToken'},
+      );
+      if (response.statusCode == 200) {
+        List<String> _units =
+            List<String>.from(json.decode(response.body).map((x) => x));
+        return _units;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+}
+
+class GetUnitService {
+  Future<Unit?> getName(
+      String bearerToken, String armyId, String unitId) async {
+    try {
+      var url = Uri.parse(baseUrl + ArmyEndPoints.getUnit(armyId, unitId));
+      var response = await http.get(
+        url,
+        headers: {'Authorization': 'Bearer $bearerToken'},
+      );
+      if (response.statusCode == 200) {
+        Unit _unit = unitFromJson(response.body);
+        return _unit;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+}
+
+class GetUnitModifiersService {
+  Future<List<String>?> getUnitModifiers(
+      String bearerToken, String armyId, String unitId) async {
+    try {
+      var url =
+          Uri.parse(baseUrl + ArmyEndPoints.getUnitModifiers(armyId, unitId));
+      var response = await http.get(
+        url,
+        headers: {'Authorization': 'Bearer $bearerToken'},
+      );
+      if (response.statusCode == 200) {
+        List<String> _modifiers =
+            List<String>.from(json.decode(response.body).map((x) => x));
+        return _modifiers;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+}
+
+class GetUnitModifierService {
+  Future<Modifier?> getUnitModifier(String bearerToken, String armyId,
+      String unitId, String modifierId) async {
+    try {
+      var url = Uri.parse(
+          baseUrl + ArmyEndPoints.getUnitModifier(armyId, unitId, modifierId));
+      var response = await http.get(
+        url,
+        headers: {'Authorization': 'Bearer $bearerToken'},
+      );
+      if (response.statusCode == 200) {
+        Modifier _modifiers = modifierFromJson(response.body);
+        return _modifiers;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+}
+
+class GetArmyModifiersService {
+  Future<List<String>?> getUnitModifiers(
+      String bearerToken, String armyId, String unitId) async {
+    try {
+      var url = Uri.parse(baseUrl + ArmyEndPoints.getArmyModifiers(armyId));
+      var response = await http.get(
+        url,
+        headers: {'Authorization': 'Bearer $bearerToken'},
+      );
+      if (response.statusCode == 200) {
+        List<String> _modifiers =
+            List<String>.from(json.decode(response.body).map((x) => x));
+        return _modifiers;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+}
+
+class GetArmyModifierService {
+  Future<Modifier?> getArmyModifier(String bearerToken, String armyId,
+      String unitId, String modifierId) async {
+    try {
+      var url = Uri.parse(
+          baseUrl + ArmyEndPoints.getArmyModifier(armyId, modifierId));
+      var response = await http.get(
+        url,
+        headers: {'Authorization': 'Bearer $bearerToken'},
+      );
+      if (response.statusCode == 200) {
+        Modifier _modifiers = modifierFromJson(response.body);
+        return _modifiers;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+}
