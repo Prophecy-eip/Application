@@ -140,7 +140,7 @@ class UpdatePictureService {
 class ShareListService {
   Future<int?> shareList(String bearerToken, String listId) async {
     try {
-      var url = Uri.parse(baseUrl + AccountEndPoints.shareList + listId);
+      var url = Uri.parse(baseUrl + AccountEndPoints.shareList(listId));
       var response = await http
           .put(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
@@ -156,7 +156,7 @@ class ShareListService {
 class UnshareListService {
   Future<int?> unshareList(String bearerToken, String listId) async {
     try {
-      var url = Uri.parse(baseUrl + AccountEndPoints.unshareList + listId);
+      var url = Uri.parse(baseUrl + AccountEndPoints.unshareList(listId));
       var response = await http
           .put(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
@@ -172,7 +172,7 @@ class UnshareListService {
 class ShareGameService {
   Future<int?> shareGame(String bearerToken, String gameId) async {
     try {
-      var url = Uri.parse(baseUrl + AccountEndPoints.shareGame + gameId);
+      var url = Uri.parse(baseUrl + AccountEndPoints.shareGame(gameId));
       var response = await http
           .put(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
@@ -188,7 +188,7 @@ class ShareGameService {
 class UnshareGameService {
   Future<int?> unshareGame(String bearerToken, String gameId) async {
     try {
-      var url = Uri.parse(baseUrl + AccountEndPoints.unshareGame + gameId);
+      var url = Uri.parse(baseUrl + AccountEndPoints.unshareGame(gameId));
       var response = await http
           .put(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
@@ -205,7 +205,7 @@ class ShareStatisticService {
   Future<int?> shareStatistic(String bearerToken, String statisticId) async {
     try {
       var url =
-          Uri.parse(baseUrl + AccountEndPoints.shareStatistic + statisticId);
+          Uri.parse(baseUrl + AccountEndPoints.shareStatistic(statisticId));
       var response = await http
           .put(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
@@ -222,7 +222,7 @@ class UnshareStatisticService {
   Future<int?> unshareStatistic(String bearerToken, String statisticId) async {
     try {
       var url =
-          Uri.parse(baseUrl + AccountEndPoints.unshareStatistic + statisticId);
+          Uri.parse(baseUrl + AccountEndPoints.unshareStatistic(statisticId));
       var response = await http
           .put(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
@@ -256,7 +256,7 @@ class CreatePostService {
 class UpdatePostService {
   Future<int?> updatePost(String bearerToken, String postId, Post post) async {
     try {
-      var url = Uri.parse(baseUrl + AccountEndPoints.updatePost + postId);
+      var url = Uri.parse(baseUrl + AccountEndPoints.updatePost(postId));
       var response = await http.put(url,
           headers: {'Authorization': 'Bearer $bearerToken'},
           body: post.toJson());
@@ -273,7 +273,7 @@ class UpdatePostService {
 class DeletePostService {
   Future<int?> deletePost(String bearerToken, String postId) async {
     try {
-      var url = Uri.parse(baseUrl + AccountEndPoints.deletePost + postId);
+      var url = Uri.parse(baseUrl + AccountEndPoints.deletePost(postId));
       var response = await http
           .put(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
@@ -289,7 +289,7 @@ class DeletePostService {
 class FollowUserService {
   Future<int?> followUser(String bearerToken, String userId) async {
     try {
-      var url = Uri.parse(baseUrl + AccountEndPoints.followUser + userId);
+      var url = Uri.parse(baseUrl + AccountEndPoints.followUser(userId));
       var response = await http
           .put(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
@@ -305,7 +305,7 @@ class FollowUserService {
 class UnfollowUserService {
   Future<int?> unfollowUser(String bearerToken, String userId) async {
     try {
-      var url = Uri.parse(baseUrl + AccountEndPoints.unfollowUser + userId);
+      var url = Uri.parse(baseUrl + AccountEndPoints.unfollowUser(userId));
       var response = await http
           .put(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
@@ -321,7 +321,7 @@ class UnfollowUserService {
 class BlockUserService {
   Future<int?> blockUser(String bearerToken, String userId) async {
     try {
-      var url = Uri.parse(baseUrl + AccountEndPoints.blockUser + userId);
+      var url = Uri.parse(baseUrl + AccountEndPoints.blockUser(userId));
       var response = await http
           .put(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
@@ -337,7 +337,7 @@ class BlockUserService {
 class UnblockUserService {
   Future<int?> unblockUser(String bearerToken, String userId) async {
     try {
-      var url = Uri.parse(baseUrl + AccountEndPoints.unblockUser + userId);
+      var url = Uri.parse(baseUrl + AccountEndPoints.unblockUser(userId));
       var response = await http
           .put(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
@@ -354,7 +354,7 @@ class GetBlockedUsersService {
   Future<List<String>?> getBlockedUser(
       String bearerToken, String userId) async {
     try {
-      var url = Uri.parse(baseUrl + AccountEndPoints.getBlockedUser + userId);
+      var url = Uri.parse(baseUrl + AccountEndPoints.getBlockedUser(userId));
       var response = await http
           .put(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {

@@ -27,7 +27,7 @@ class UpdateEventService {
   Future<int?> saveEvent(
       String bearerToken, String eventId, Event event) async {
     try {
-      var url = Uri.parse(baseUrl + EventEndPoints.updateEvent + eventId);
+      var url = Uri.parse(baseUrl + EventEndPoints.updateEvent(eventId));
       var response = await http.put(url,
           headers: {'Authorization': 'Bearer $bearerToken'},
           body: event.toJson());
@@ -44,7 +44,7 @@ class UpdateEventService {
 class DeleteEventService {
   Future<int?> saveEvent(String bearerToken, String eventId) async {
     try {
-      var url = Uri.parse(baseUrl + EventEndPoints.deleteEvent + eventId);
+      var url = Uri.parse(baseUrl + EventEndPoints.deleteEvent(eventId));
       var response = await http
           .delete(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
@@ -60,7 +60,7 @@ class DeleteEventService {
 class SaveEventService {
   Future<int?> saveEvent(String bearerToken, String eventId) async {
     try {
-      var url = Uri.parse(baseUrl + EventEndPoints.saveEvent + eventId);
+      var url = Uri.parse(baseUrl + EventEndPoints.saveEvent(eventId));
       var response = await http
           .put(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
@@ -76,7 +76,7 @@ class SaveEventService {
 class UnsaveEventService {
   Future<int?> saveEvent(String bearerToken, String eventId) async {
     try {
-      var url = Uri.parse(baseUrl + EventEndPoints.unsaveEvent + eventId);
+      var url = Uri.parse(baseUrl + EventEndPoints.unsaveEvent(eventId));
       var response = await http
           .put(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
@@ -92,7 +92,7 @@ class UnsaveEventService {
 class GetEventService {
   Future<Event?> getEvent(String bearerToken, String eventId) async {
     try {
-      var url = Uri.parse(baseUrl + EventEndPoints.getEvent + eventId);
+      var url = Uri.parse(baseUrl + EventEndPoints.getEvent(eventId));
       var response = await http.get(
         url,
         headers: {'Authorization': 'Bearer $bearerToken'},
