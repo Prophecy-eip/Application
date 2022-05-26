@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 
@@ -281,6 +282,89 @@ class DeletePostService {
           .put(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
         return response.statusCode;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+}
+
+class FollowUserService {
+  Future<int?> followUser(String bearerToken, String userId) async {
+    try {
+      var url = Uri.parse(baseUrl + AccountEndPoints.followUser + userId);
+      var response = await http
+          .put(url, headers: {'Authorization': 'Bearer $bearerToken'});
+      if (response.statusCode == 200) {
+        return response.statusCode;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+}
+
+class UnfollowUserService {
+  Future<int?> unfollowUser(String bearerToken, String userId) async {
+    try {
+      var url = Uri.parse(baseUrl + AccountEndPoints.unfollowUser + userId);
+      var response = await http
+          .put(url, headers: {'Authorization': 'Bearer $bearerToken'});
+      if (response.statusCode == 200) {
+        return response.statusCode;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+}
+
+class BlockUserService {
+  Future<int?> blockUser(String bearerToken, String userId) async {
+    try {
+      var url = Uri.parse(baseUrl + AccountEndPoints.blockUser + userId);
+      var response = await http
+          .put(url, headers: {'Authorization': 'Bearer $bearerToken'});
+      if (response.statusCode == 200) {
+        return response.statusCode;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+}
+
+class UnblockUserService {
+  Future<int?> unblockUser(String bearerToken, String userId) async {
+    try {
+      var url = Uri.parse(baseUrl + AccountEndPoints.unblockUser + userId);
+      var response = await http
+          .put(url, headers: {'Authorization': 'Bearer $bearerToken'});
+      if (response.statusCode == 200) {
+        return response.statusCode;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+}
+
+class GetBlockedUsersService {
+  Future<List<String>?> getBlockedUser(
+      String bearerToken, String userId) async {
+    try {
+      var url = Uri.parse(baseUrl + AccountEndPoints.getBlockedUser + userId);
+      var response = await http
+          .put(url, headers: {'Authorization': 'Bearer $bearerToken'});
+      if (response.statusCode == 200) {
+        List<String> _users =
+            List<String>.from(json.decode(response.body).map((x) => x));
+        return _users;
       }
     } catch (e) {
       log(e.toString());
