@@ -46,8 +46,74 @@ class SignOutService {
   Future<int?> signOut(String bearerToken) async {
     try {
       var url = Uri.parse(baseUrl + AccountEndPoints.signOut);
-      var response =
-          await http.post(url, headers: {'Authorization': bearerToken});
+      var response = await http
+          .post(url, headers: {'Authorization': 'Bearer $bearerToken'});
+      if (response.statusCode == 200) {
+        return response.statusCode;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+}
+
+class UpdatePasswordService {
+  Future<int?> updatePassword(String bearerToken, String password) async {
+    try {
+      var url = Uri.parse(baseUrl + AccountEndPoints.updatePassword);
+      var response = await http.put(url,
+          headers: {'Authorization': 'Bearer $bearerToken'}, body: password);
+      if (response.statusCode == 200) {
+        return response.statusCode;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+}
+
+class UpdateUsernameService {
+  Future<int?> updateUsername(String bearerToken, String username) async {
+    try {
+      var url = Uri.parse(baseUrl + AccountEndPoints.updateUsername);
+      var response = await http.put(url,
+          headers: {'Authorization': 'Bearer $bearerToken'}, body: username);
+      if (response.statusCode == 200) {
+        return response.statusCode;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+}
+
+class UpdateEmailAddressService {
+  Future<int?> updateEmailAddress(
+      String bearerToken, String emailAddress) async {
+    try {
+      var url = Uri.parse(baseUrl + AccountEndPoints.updateEmailAddress);
+      var response = await http.put(url,
+          headers: {'Authorization': 'Bearer $bearerToken'},
+          body: emailAddress);
+      if (response.statusCode == 200) {
+        return response.statusCode;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+}
+
+class DeleteAccountService {
+  Future<int?> deleteAccount(String bearerToken) async {
+    try {
+      var url = Uri.parse(baseUrl + AccountEndPoints.deleteAccount);
+      var response = await http
+          .delete(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
         return response.statusCode;
       }
