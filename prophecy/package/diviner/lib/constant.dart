@@ -19,4 +19,9 @@ class AccountEndPoints {
   static String createPost = '/account/profile/posts/create-post';
   static String updatePost = '/account/profile/posts/update-post/';
   static String deletePost = '/account/profile/posts/delete-post/';
+  static String followUser = '/account/users/follow-user/';
+  static String unfollowUser = '/account/users/unfollow-user/';
+  static String blockUser = '/account/users/block-user/';
+  static String unblockUser = '/account/users/unblock-user/';
+  static String getBlockedUser = '/account/users/get-blocked-users/';
 }
