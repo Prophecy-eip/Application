@@ -204,3 +204,37 @@ class UnshareGameService {
     return null;
   }
 }
+
+class ShareStatisticService {
+  Future<int?> shareStatistic(String bearerToken, String statisticId) async {
+    try {
+      var url =
+          Uri.parse(baseUrl + AccountEndPoints.shareStatistic + statisticId);
+      var response = await http
+          .put(url, headers: {'Authorization': 'Bearer $bearerToken'});
+      if (response.statusCode == 200) {
+        return response.statusCode;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+}
+
+class UnshareStatisticService {
+  Future<int?> unshareStatistic(String bearerToken, String statisticId) async {
+    try {
+      var url =
+          Uri.parse(baseUrl + AccountEndPoints.unshareStatistic + statisticId);
+      var response = await http
+          .put(url, headers: {'Authorization': 'Bearer $bearerToken'});
+      if (response.statusCode == 200) {
+        return response.statusCode;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+}
