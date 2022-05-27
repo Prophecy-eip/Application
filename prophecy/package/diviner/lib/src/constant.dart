@@ -103,3 +103,12 @@ class UserEndPoints {
   static String getFollowedUsers(String userId) =>
       '/users/$userId/profile/get-followed-users';
 }
+
+class StatisticEndPoints {
+  static String createStatistic = '/statistics/create-statistic';
+  static String getStatistics = '/statistics/get-statistics';
+  static String getStatistic(String statisticId) =>
+      '/statistics/get-statistic/$statisticId';
+  static String deleteStatistic(String statisticId) =>
+      '/statistics/delete-statistic/$statisticId';
+}
