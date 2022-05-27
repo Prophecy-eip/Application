@@ -104,3 +104,31 @@ class Organisation {
         "limit": limit.toJson(),
       };
 }
+
+Tag tagFromJson(String str) => Tag.fromJson(json.decode(str));
+
+String tagToJson(Tag data) => json.encode(data.toJson());
+
+class Tag {
+  Tag({
+    required this.name,
+    required this.description,
+    required this.color,
+  });
+
+  String name;
+  String description;
+  String color;
+
+  factory Tag.fromJson(Map<String, dynamic> json) => Tag(
+        name: json["name"],
+        description: json["description"],
+        color: json["color"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "name": name,
+        "description": description,
+        "color": color,
+      };
+}
