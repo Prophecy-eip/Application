@@ -2,6 +2,10 @@ import 'dart:convert';
 
 import 'unit.dart';
 
+Army armyFromJson(String str) => Army.fromJson(json.decode(str));
+
+String armyToJson(Army data) => json.encode(data.toJson());
+
 class Army {
   Army({
     required this.listName,
