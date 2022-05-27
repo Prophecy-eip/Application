@@ -110,11 +110,11 @@ class GetEventService {
 
 class GetEventsService {
   Future<List<String>?> getEvents(String bearerToken,
-      {String city = '', String locationId = ''}) async {
+      {String? city, String? locationId}) async {
     try {
-      var query = city.isEmpty
-          ? (locationId.isEmpty ? '' : '?locationId=$locationId')
-          : (locationId.isEmpty
+      var query = city == null
+          ? (locationId == null ? '' : '?locationId=$locationId')
+          : (locationId == null
               ? '?city=$city'
               : '?city=$city&locationId=$locationId');
       var url = Uri.parse(baseUrl + EventEndPoints.getEvents + query);

@@ -74,3 +74,11 @@ class ProphecyEndPoints {
   static String getProphecy = '/prophecies/get-prophecy';
   static String getHistory = '/prophecies/get-history';
 }
+
+class GameEndPoints {
+  static String createGame = '/games/create-game';
+  static String updateGame(String gameId) => '/games/update-game/$gameId';
+  static String deleteGame(String gameId) => '/games/delete/$gameId';
+  static String getGames = '/games/get-games';
+  static String getGame(String gameId) => '/games/get-game/$gameId';
+}
