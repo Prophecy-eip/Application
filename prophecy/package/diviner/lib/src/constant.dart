@@ -104,6 +104,21 @@ class UserEndPoints {
       '/users/$userId/profile/get-followed-users';
 }
 
+class TeamEndPoints {
+  static String createTeam = '/teams/create-team';
+  static String createMessage(String teamId) => '/teams/$teamId/create-message';
+  static String getTeams = '/teams/get-teams';
+  static String getTeam(String teamId) => '/teams/get-team/$teamId';
+  static String getMessages(String teamId) => '/teams/$teamId/get-messages';
+  static String updateTeam(String teamId) => '/teams/update-team/$teamId';
+  static String updateMessage(String teamId, String messageId) => '/teams/$teamId/update-message/$messageId';
+  static String inviteUser(String teamId, String userId) => '/teams/$teamId/invite-user/$userId';
+  static String removeUser(String teamId, String userId) => '/teams/$teamId/remove-user/$userId';
+  static String respondToInvitation(String teamId) => '/teams/$teamId/respond-to-invitation';
+  static String deleteTeam(String teamId) => '/teams/delete-team/$teamId';
+  static String deleteMessage(String teamId, String messageId) => '/teams/$teamId/delete-message/$messageId';
+}
+
 class LocationEndPoints {
   static String createLocation = '/locations/create-statistic';
   static String updateLocation(String locationId) =>
