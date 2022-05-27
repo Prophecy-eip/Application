@@ -146,10 +146,8 @@ class ArmyListEndPoints {
   static String createTag = '/armies-list/create-tag';
   static String getTags = '/armies-list/getTags';
   static String getTag(String tagId) => '/armies-list/get-tag/$tagId';
-  static String updateTag(String tagId) =>
-      '/armies-list/update-tag/$tagId';
-  static String deleteTag(String tagId) =>
-      '/armies-list/delete-tag/$tagId';
+  static String updateTag(String tagId) => '/armies-list/update-tag/$tagId';
+  static String deleteTag(String tagId) => '/armies-list/delete-tag/$tagId';
 }
 
 class StatisticEndPoints {
