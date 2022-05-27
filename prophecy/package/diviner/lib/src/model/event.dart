@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'location.dart';
+
 Event eventFromJson(String str) => Event.fromJson(json.decode(str));
 
 String eventToJson(Event data) => json.encode(data.toJson());
@@ -49,57 +51,5 @@ class Event {
         "address": address.toJson(),
         "locationId": locationId,
         "contact": contact.toJson(),
-      };
-}
-
-class Address {
-  Address({
-    required this.number,
-    required this.street,
-    required this.city,
-    required this.postalCode,
-    required this.country,
-  });
-
-  int number;
-  String street;
-  String city;
-  int postalCode;
-  String country;
-
-  factory Address.fromJson(Map<String, dynamic> json) => Address(
-        number: json["number"],
-        street: json["street"],
-        city: json["city"],
-        postalCode: json["postalCode"],
-        country: json["country"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "number": number,
-        "street": street,
-        "city": city,
-        "postalCode": postalCode,
-        "country": country,
-      };
-}
-
-class Contact {
-  Contact({
-    required this.phone,
-    required this.emailAddress,
-  });
-
-  String phone;
-  String emailAddress;
-
-  factory Contact.fromJson(Map<String, dynamic> json) => Contact(
-        phone: json["phone"],
-        emailAddress: json["emailAddress"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "phone": phone,
-        "emailAddress": emailAddress,
       };
 }
