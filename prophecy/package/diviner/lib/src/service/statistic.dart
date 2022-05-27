@@ -29,7 +29,7 @@ class GetStatisticsService {
     try {
       var url = Uri.parse(baseUrl + StatisticEndPoints.getStatistics);
       var response = await http
-          .post(url, headers: {'Authorization': 'Bearer $bearerToken'});
+          .get(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
         List<String> _statistics =
             List<String>.from(json.decode(response.body).map((x) => x));
@@ -49,7 +49,7 @@ class GetStatisticService {
       var url =
           Uri.parse(baseUrl + StatisticEndPoints.getStatistic(statisticId));
       var response = await http
-          .post(url, headers: {'Authorization': 'Bearer $bearerToken'});
+          .get(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
         Statistic _model = statisticFromJson(response.body);
         return _model;
@@ -67,7 +67,7 @@ class DeleteStatisticService {
       var url =
           Uri.parse(baseUrl + StatisticEndPoints.deleteStatistic(statisticId));
       var response = await http
-          .post(url, headers: {'Authorization': 'Bearer $bearerToken'});
+          .delete(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
         return response.statusCode;
       }
