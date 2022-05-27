@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:developer';
-import 'dart:io';
 
 import 'package:diviner/src/constant.dart';
 import 'package:http/http.dart' as http;

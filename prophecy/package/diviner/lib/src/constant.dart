@@ -104,6 +104,19 @@ class UserEndPoints {
       '/users/$userId/profile/get-followed-users';
 }
 
+class LocationEndPoints {
+  static String createLocation = '/locations/create-statistic';
+  static String updateLocation(String locationId) =>
+      '/locations/update-location/$locationId';
+  static String deleteLocation(String locationId) =>
+      '/locations/delete-location/$locationId';
+  static String getLocations = '/locations/get-statistics';
+  static String getLocation(String locationId) =>
+      '/locations/get-location/$locationId';
+  static String getLocationEvents(String locationId) =>
+      '/locations/$locationId/events/get-events';
+}
+
 class StatisticEndPoints {
   static String createStatistic = '/statistics/create-statistic';
   static String getStatistics = '/statistics/get-statistics';
