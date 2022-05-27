@@ -82,3 +82,24 @@ class GameEndPoints {
   static String getGames = '/games/get-games';
   static String getGame(String gameId) => '/games/get-game/$gameId';
 }
+
+class UserEndPoints {
+  static String getUsers = '/users/get-users';
+  static String getUser(String userId) => '/users/get-user/$userId';
+  static String getSharedGames(String userId) =>
+      '/users/$userId/profile/games/get-shared-games';
+  static String getSharedGame(String userId, String gameId) =>
+      '/users/$userId/profile/games/get-shared-game/$gameId';
+  static String getSharedLists(String userId) =>
+      '/users/$userId/profile/armies-lists/get-shared-lists';
+  static String getSharedList(String userId, String listId) =>
+      '/users/$userId/profile/armies-lists/get-shared-list/$listId';
+  static String getPosts(String userId) =>
+      '/users/$userId/profile/posts/get-posts';
+  static String getPostPicture(String postId) =>
+      '/users/profile/pictures/get-post/$postId';
+  static String getFollowers(String userId) =>
+      '/users/$userId/profile/get-followers';
+  static String getFollowedUsers(String userId) =>
+      '/users/$userId/profile/get-followed-users';
+}
