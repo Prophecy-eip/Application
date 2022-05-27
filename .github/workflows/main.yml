@@ -15,7 +15,7 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
       - uses: subosito/flutter-action@v2.3.0
-      - run: flutter format lib/
+      - run: flutter format lib/ package/diviner/lib/
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: 'style(lib): apply flutter format'
@@ -27,6 +27,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: subosito/flutter-action@v2.3.0
+      - run: flutter pub get
+      - run: flutter pub get package/diviner/
       - run: flutter analyze
   test:
     defaults:
