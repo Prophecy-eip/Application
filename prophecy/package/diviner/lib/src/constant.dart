@@ -111,12 +111,17 @@ class TeamEndPoints {
   static String getTeam(String teamId) => '/teams/get-team/$teamId';
   static String getMessages(String teamId) => '/teams/$teamId/get-messages';
   static String updateTeam(String teamId) => '/teams/update-team/$teamId';
-  static String updateMessage(String teamId, String messageId) => '/teams/$teamId/update-message/$messageId';
-  static String inviteUser(String teamId, String userId) => '/teams/$teamId/invite-user/$userId';
-  static String removeUser(String teamId, String userId) => '/teams/$teamId/remove-user/$userId';
-  static String respondToInvitation(String teamId) => '/teams/$teamId/respond-to-invitation';
+  static String updateMessage(String teamId, String messageId) =>
+      '/teams/$teamId/update-message/$messageId';
+  static String inviteUser(String teamId, String userId) =>
+      '/teams/$teamId/invite-user/$userId';
+  static String removeUser(String teamId, String userId) =>
+      '/teams/$teamId/remove-user/$userId';
+  static String respondToInvitation(String teamId) =>
+      '/teams/$teamId/respond-to-invitation';
   static String deleteTeam(String teamId) => '/teams/delete-team/$teamId';
-  static String deleteMessage(String teamId, String messageId) => '/teams/$teamId/delete-message/$messageId';
+  static String deleteMessage(String teamId, String messageId) =>
+      '/teams/$teamId/delete-message/$messageId';
 }
 
 class LocationEndPoints {
@@ -130,6 +135,21 @@ class LocationEndPoints {
       '/locations/get-location/$locationId';
   static String getLocationEvents(String locationId) =>
       '/locations/$locationId/events/get-events';
+}
+
+class ArmyListEndPoints {
+  static String createList = '/armies-list/create-list';
+  static String getLists = '/armies-list/get-lists';
+  static String getList(String listId) => '/armies-list/get-list/$listId';
+  static String updateList(String listId) => '/armies-list/update-list/$listId';
+  static String deleteList(String listId) => '/armies-list/delete-list/$listId';
+  static String createTag = '/armies-list/create-tag';
+  static String getTags = '/armies-list/getTags';
+  static String getTag(String tagId) => '/armies-list/get-tag/$tagId';
+  static String updateTag(String tagId) =>
+      '/armies-list/update-tag/$tagId';
+  static String deleteTag(String tagId) =>
+      '/armies-list/delete-tag/$tagId';
 }
 
 class StatisticEndPoints {
