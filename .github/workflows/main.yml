@@ -26,10 +26,9 @@ jobs:
         run: flutter test --coverage
 
       - name: Upload to code coverage
-        uses: VeryGoodOpenSource/very_good_coverage@v1.2.1
+        uses: Nef10/lcov-reporter-action@v0.3.0
         with:
-          path: "./coverage/lcov.info"
-          min_coverage: 50
+          pr_number: ${{ env.pr_number }}
 
       - name: Upload APK
         uses: actions/upload-artifact@v3
