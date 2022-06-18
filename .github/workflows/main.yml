@@ -26,10 +26,12 @@ jobs:
         run: flutter test --coverage
 
       - name: Upload to code coverage
-        uses: Nef10/lcov-reporter-action@v0.3.0
+        uses: zgosalvez/github-actions-report-lcov@v1.4.0
         with:
+          coverage-files: coverage/lcov.*.info
+          minimum-coverage: 90
+          artifact-name: code-coverage-report
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          pr_number: ${{ env.pr_number }}
 
       - name: Upload APK
         uses: actions/upload-artifact@v3
