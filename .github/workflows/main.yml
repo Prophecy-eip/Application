@@ -26,7 +26,7 @@ jobs:
         run: flutter test --coverage
 
       - name: check coverage
-        run: car coverage/lcov.info
+        run: cat coverage/lcov.info
  
       - name: Upload to code coverage
         uses: VeryGoodOpenSource/very_good_coverage@v1.1.1
