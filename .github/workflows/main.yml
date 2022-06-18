@@ -26,10 +26,12 @@ jobs:
         run: flutter test --coverage
 
       - name: check coverage
-        run: ls . && ls coverage/
+        run: car coverage/lcov.info
  
       - name: Upload to code coverage
-        uses: VeryGoodOpenSource/very_good_coverage@v1
+        uses: VeryGoodOpenSource/very_good_coverage@v1.1.1
+        with:
+          path: coverage/lcov.info
         # with:
         #   path: ./coverage/lcov.info
         #   min: 95
