@@ -41,9 +41,8 @@ jobs:
       - run: flutter test --coverage
       - uses: VeryGoodOpenSource/very_good_coverage@v1
         with:
+          path: coverage/lcov.info
           min_coverage: 80
-      # - run: sudo apt-get install lcov
-      # - run: lcov --summary coverage/lcov.info
   build-android:
     defaults:
       run:
