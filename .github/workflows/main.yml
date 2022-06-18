@@ -1,56 +1,38 @@
-name: CI
+name: Flutter Workflow
 
 on:
   pull_request:
     branches: [master]
 
 jobs:
-  format:
+  build:
     defaults:
       run:
         working-directory: prophecy/
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install FLutter
+        uses: subosito/flutter-action@v2.4.0
+      - run: flutter build apk
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Run unit tests
+        run: flutter test --coverage
+
+      - name: Upload to code coverage
+        uses: VeryGoodOpenSource/very_good_coverage@v1.2.1
         with:
-          ref: ${{ github.head_ref }}
-      - uses: subosito/flutter-action@v2.3.0
-      - run: flutter format lib/ package/diviner/lib/
-      - uses: stefanzweifel/git-auto-commit-action@v4
+          path: "./coverage/lcov.info"
+          min_coverage: 50
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
         with:
-          commit_message: 'style(lib): apply flutter format'
-  analyze:
-    defaults:
-      run:
-        working-directory: prophecy/
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: subosito/flutter-action@v2.3.0
-      - run: flutter pub get
-      - run: flutter pub get package/diviner/
-      - run: flutter analyze
-  test:
-    defaults:
-      run:
-        working-directory: prophecy/
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: subosito/flutter-action@v2.3.0
-      - run: flutter test --coverage
-      - uses: VeryGoodOpenSource/very_good_coverage@v1
-        with:
-          path: coverage/lcov.info
-          min_coverage: 80
-  build-android:
-    defaults:
-      run:
-        working-directory: prophecy/
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: subosito/flutter-action@v2.3.0
-      - run: flutter clean
-      - run: flutter pub get
-      - run: flutter build appbundle
+          name: release-apk
+          path: build/app/outputs/apk/release/app-release.apk
