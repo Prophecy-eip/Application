@@ -38,13 +38,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: subosito/flutter-action@v2.3.0
-      - run: flutter test --coverage
-      - uses: zgosalvez/github-actions-report-lcov@v1
+      - uses: VeryGoodOpenSource/very_good_coverage@v1
         with:
-          coverage-files: coverage/lcov.*.info
-          minimum-coverage: 90
-          artifact-name: code-coverage-report
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          min_coverage: 80
+      - run: flutter test --coverage
+      # - run: sudo apt-get install lcov
+      # - run: lcov --summary coverage/lcov.info
   build-android:
     defaults:
       run:
