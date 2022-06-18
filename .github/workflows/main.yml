@@ -25,10 +25,14 @@ jobs:
       - name: Run unit tests
         run: flutter test --coverage
 
+      - name: check coverage
+        run: ls prophecy/ && ls prophecy/coverage/
+ 
       - name: Upload to code coverage
-        uses: romeovs/lcov-reporter-action@v0.2.16
-        with:
-          lcov-file: ./coverage/lcov.info
+        uses: VeryGoodOpenSource/very_good_coverage@v1
+        # with:
+        #   path: ./coverage/lcov.info
+        #   min: 95
           # github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload APK
