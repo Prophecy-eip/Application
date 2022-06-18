@@ -26,7 +26,7 @@ jobs:
         run: flutter test --coverage
 
       - name: check coverage
-        run: ls prophecy/ && ls prophecy/coverage/
+        run: ls . && ls coverage/
  
       - name: Upload to code coverage
         uses: VeryGoodOpenSource/very_good_coverage@v1
