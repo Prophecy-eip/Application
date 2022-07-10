@@ -26,11 +26,13 @@ jobs:
       - name: Install dependencies
         run: flutter pub get && flutter pub get package/diviner/
 
-      # - name: Format codebase
-      #   uses: stefanzweifel/git-auto-commit-action@v4
-      #   with:
-      #     commit_message: "style(lib): apply flutter format"
-      #   run: flutter format lib/ package/diviner/lib/
+      - name: Auto commit
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "style(lib): apply flutter format"
+
+      - name: Format codebase
+        run: flutter format lib/ package/diviner/lib/
 
       - name: Analyse codebase
         run: flutter analyze
