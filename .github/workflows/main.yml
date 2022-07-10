@@ -47,7 +47,7 @@ jobs:
       - name: (FORK) Very Good Coverage - Changed Files
         uses: johnsouza-loftbr/very_good_coverage@v1.3.2
         with:
-          path: coverage/lcov.info
+          path: './coverage/lcov.info'
           min_coverage: 10
 
 
