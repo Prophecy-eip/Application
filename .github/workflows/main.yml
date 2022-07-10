@@ -55,6 +55,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           lcov-info: ./prophecy/coverage/lcov.info
+          lcov-path: ./prophecy/coverage/lcov.info
 
       # - name: Report coverage
       #   uses: bigmeech/gha-simple-coverage@master
