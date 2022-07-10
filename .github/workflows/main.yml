@@ -44,11 +44,11 @@ jobs:
       - name: Check coverage
         run: cat coverage/lcov.info
 
-      - name: (FORK) Very Good Coverage - Changed Files
-        uses: johnsouza-loftbr/very_good_coverage@v1.3.2
+      - name: Report coverage
+        uses: bigmeech/gha-simple-coverage@master
         with:
-          path: './coverage/lcov.info'
-          min_coverage: 10
+          lcov-file-path: './coverage/lcov.info'
+          fail-if-bellow: 10
 
 
       - name: Build appbundle
