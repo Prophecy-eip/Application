@@ -24,8 +24,9 @@ jobs:
       #     key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
 
       - name: Install FLutter
-        # if: steps.cache.outputs.cache-hit != 'true'
         uses: subosito/flutter-action@v2.4.0
+      - run: ls
+        # if: steps.cache.outputs.cache-hit != 'true'
 
       - name: Install dependencies
         run: flutter pub get && flutter pub get package/diviner/
