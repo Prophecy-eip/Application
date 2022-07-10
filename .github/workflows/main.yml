@@ -47,7 +47,7 @@ jobs:
       - name: Report coverage
         uses: bigmeech/gha-simple-coverage@master
         with:
-          lcov-file-path: './coverage/lcov.info'
+          lcov-file-path: './prophecy/coverage/lcov.info'
           fail-if-bellow: 10
 
 
