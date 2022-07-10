@@ -31,11 +31,11 @@ jobs:
       # - run: flutter pub get
       # - run: flutter pub get package/diviner/
 
-      - name: Format codebase
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "style(lib): apply flutter format"
-        run: flutter format lib/ package/diviner/lib/
+      # - name: Format codebase
+      #   uses: stefanzweifel/git-auto-commit-action@v4
+      #   with:
+      #     commit_message: "style(lib): apply flutter format"
+      #   run: flutter format lib/ package/diviner/lib/
 
       - name: Analyse codebase
         run: flutter analyze
