@@ -34,23 +34,19 @@ jobs:
         with:
           commit_message: "style(lib): apply flutter format"
 
-
       - name: Analyse codebase
         run: flutter analyze
 
       - name: Run unit tests
         run: flutter test --coverage
 
-      - name: Check coverage
-        run: cat coverage/lcov.info
-
-      - name: Report coverage
+      - name: Ensure coverage
         uses: VeryGoodOpenSource/very_good_coverage@v1
         with:
           path: ./prophecy/coverage/lcov.info
           min_coverage: 90
 
-      - name: Coverage Report on Pull Request
+      - name: Report coverage
         uses: nohmad/lcov-report-action@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -58,3 +54,10 @@ jobs:
 
       - name: Build appbundle
         run: flutter build appbundle
+
+      - name: Upload appbundle
+        uses: actions/upload-artifact@v3
+        if: success()
+        with:
+          name: app-release.aab
+          path: ./prophecy/build/app/outputs/bundle/release/app-release.aab
