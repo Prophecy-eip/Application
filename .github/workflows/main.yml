@@ -33,7 +33,7 @@ jobs:
 
       - name: Format codebase
         run: flutter format lib/ package/diviner/lib/
-      - uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "style(lib): apply flutter format"
 
