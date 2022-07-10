@@ -45,10 +45,16 @@ jobs:
         run: cat coverage/lcov.info
 
       - name: Report coverage
-        uses: bigmeech/gha-simple-coverage@master
+        uses: VeryGoodOpenSource/very_good_coverage@v1
         with:
-          lcov-file-path: './prophecy/coverage/lcov.info'
-          fail-if-below: 10
+          path: './prophecy/coverage/lcov.info'
+          min_coverage: 10
+
+      # - name: Report coverage
+      #   uses: bigmeech/gha-simple-coverage@master
+      #   with:
+      #     lcov-file-path: './prophecy/coverage/lcov.info'
+      #     fail-if-below: 10
 
 
       - name: Build appbundle
