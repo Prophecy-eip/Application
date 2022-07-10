@@ -47,7 +47,7 @@ jobs:
       - name: Report code coverage
         uses: imciner2/run-lcov@v1
         with:
-          input_directory: coverage/
+          input_directory: coverage/lcov.info
 
       - name: Build appbundle
         run: flutter build appbundle
