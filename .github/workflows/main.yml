@@ -48,7 +48,7 @@ jobs:
         uses: bigmeech/gha-simple-coverage@master
         with:
           lcov-file-path: './prophecy/coverage/lcov.info'
-          fail-if-bellow: 10
+          fail-if-below: 10
 
 
       - name: Build appbundle
