@@ -44,10 +44,12 @@ jobs:
       - name: Check coverage
         run: cat coverage/lcov.info
 
-      - name: Report code coverage
-        uses: imciner2/run-lcov@v1
+      - name: (FORK) Very Good Coverage - Changed Files
+        uses: johnsouza-loftbr/very_good_coverage@v1.3.2
         with:
-          input_directory: coverage/lcov.info
+          path: coverage/lcov.info
+          min_coverage: 10
+
 
       - name: Build appbundle
         run: flutter build appbundle
