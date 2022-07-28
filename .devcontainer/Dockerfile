@@ -14,7 +14,7 @@ ENV ANDROID_SDK_ROOT /home/dbruno/android/cmdline-tools
 RUN mkdir -p .android && touch .android/repositories.cfg
 
 # Android SDK
-RUN wget -O commandlinetools.zip https://dl.google.com/android/repository/commandlinetools-linux-8092744_latest.zip
+RUN wget -O commandlinetools.zip https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip
 RUN unzip commandlinetools.zip && rm commandlinetools.zip
 RUN mv cmdline-tools/ tools/ && mv tools/ android/cmdline-tools/
 RUN cd android/cmdline-tools/tools/bin && yes | ./sdkmanager --licenses
