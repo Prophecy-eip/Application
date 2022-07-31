@@ -12,7 +12,7 @@
             "bash": {
                 "path": "bash",
                 "icon": "terminal-bash"
-            },
+            }
         }
     },
     "runArgs": [
@@ -23,5 +23,5 @@
         "dart-code.dart-code",
         "dart-code.flutter",
         "gitHub.vscode-pull-request-github"
-    ],
+    ]
 }
