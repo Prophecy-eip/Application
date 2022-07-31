@@ -14,8 +14,8 @@ class SignInService {
       var url = Uri.parse(baseUrl + AccountEndPoints.signIn);
       var response = await http.post(url, body: credentials.toJson());
       if (response.statusCode == 200) {
-        ServerCredentials _model = serverCredentialsFromJson(response.body);
-        return _model;
+        ServerCredentials model = serverCredentialsFromJson(response.body);
+        return model;
       }
     } catch (e) {
       log(e.toString());
@@ -30,8 +30,8 @@ class SignUpService {
       var url = Uri.parse(baseUrl + AccountEndPoints.signUp);
       var response = await http.post(url, body: credentials.toJson());
       if (response.statusCode == 201) {
-        ServerCredentials _model = serverCredentialsFromJson(response.body);
-        return _model;
+        ServerCredentials model = serverCredentialsFromJson(response.body);
+        return model;
       }
     } catch (e) {
       log(e.toString());
@@ -358,9 +358,9 @@ class GetBlockedUsersService {
       var response = await http
           .put(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
-        List<String> _users =
+        List<String> users =
             List<String>.from(json.decode(response.body).map((x) => x));
-        return _users;
+        return users;
       }
     } catch (e) {
       log(e.toString());

@@ -16,9 +16,9 @@ class GetArmiesService {
         headers: {'Authorization': 'Bearer $bearerToken'},
       );
       if (response.statusCode == 200) {
-        List<String> _armies =
+        List<String> armies =
             List<String>.from(json.decode(response.body).map((x) => x));
-        return _armies;
+        return armies;
       }
     } catch (e) {
       log(e.toString());
@@ -36,8 +36,8 @@ class GetNameService {
         headers: {'Authorization': 'Bearer $bearerToken'},
       );
       if (response.statusCode == 200) {
-        String _name = response.body;
-        return _name;
+        String name = response.body;
+        return name;
       }
     } catch (e) {
       log(e.toString());
@@ -56,8 +56,8 @@ class GetOrganisationsService {
         headers: {'Authorization': 'Bearer $bearerToken'},
       );
       if (response.statusCode == 200) {
-        List<Organisation> _model = organisationFromJson(response.body);
-        return _model;
+        List<Organisation> model = organisationFromJson(response.body);
+        return model;
       }
     } catch (e) {
       log(e.toString());
@@ -75,9 +75,9 @@ class GetUnitsService {
         headers: {'Authorization': 'Bearer $bearerToken'},
       );
       if (response.statusCode == 200) {
-        List<String> _units =
+        List<String> units =
             List<String>.from(json.decode(response.body).map((x) => x));
-        return _units;
+        return units;
       }
     } catch (e) {
       log(e.toString());
@@ -96,8 +96,8 @@ class GetUnitService {
         headers: {'Authorization': 'Bearer $bearerToken'},
       );
       if (response.statusCode == 200) {
-        Unit _model = unitFromJson(response.body);
-        return _model;
+        Unit model = unitFromJson(response.body);
+        return model;
       }
     } catch (e) {
       log(e.toString());
@@ -117,9 +117,9 @@ class GetUnitModifiersService {
         headers: {'Authorization': 'Bearer $bearerToken'},
       );
       if (response.statusCode == 200) {
-        List<String> _modifiers =
+        List<String> modifiers =
             List<String>.from(json.decode(response.body).map((x) => x));
-        return _modifiers;
+        return modifiers;
       }
     } catch (e) {
       log(e.toString());
@@ -139,8 +139,8 @@ class GetUnitModifierService {
         headers: {'Authorization': 'Bearer $bearerToken'},
       );
       if (response.statusCode == 200) {
-        Modifier _model = modifierFromJson(response.body);
-        return _model;
+        Modifier model = modifierFromJson(response.body);
+        return model;
       }
     } catch (e) {
       log(e.toString());
@@ -159,9 +159,9 @@ class GetArmyModifiersService {
         headers: {'Authorization': 'Bearer $bearerToken'},
       );
       if (response.statusCode == 200) {
-        List<String> _modifiers =
+        List<String> modifiers =
             List<String>.from(json.decode(response.body).map((x) => x));
-        return _modifiers;
+        return modifiers;
       }
     } catch (e) {
       log(e.toString());
@@ -181,8 +181,8 @@ class GetArmyModifierService {
         headers: {'Authorization': 'Bearer $bearerToken'},
       );
       if (response.statusCode == 200) {
-        Modifier _model = modifierFromJson(response.body);
-        return _model;
+        Modifier model = modifierFromJson(response.body);
+        return model;
       }
     } catch (e) {
       log(e.toString());
@@ -201,9 +201,9 @@ class GetRulesService {
         headers: {'Authorization': 'Bearer $bearerToken'},
       );
       if (response.statusCode == 200) {
-        List<String> _rules =
+        List<String> rules =
             List<String>.from(json.decode(response.body).map((x) => x));
-        return _rules;
+        return rules;
       }
     } catch (e) {
       log(e.toString());
@@ -222,8 +222,8 @@ class GetRuleService {
         headers: {'Authorization': 'Bearer $bearerToken'},
       );
       if (response.statusCode == 200) {
-        Rule _model = ruleFromJson(response.body);
-        return _model;
+        Rule model = ruleFromJson(response.body);
+        return model;
       }
     } catch (e) {
       log(e.toString());

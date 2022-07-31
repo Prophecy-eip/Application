@@ -18,9 +18,9 @@ class GetUsersService {
       var response = await http
           .get(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
-        List<String> _users =
+        List<String> users =
             List<String>.from(json.decode(response.body).map((x) => x));
-        return _users;
+        return users;
       }
     } catch (e) {
       log(e.toString());
@@ -36,8 +36,8 @@ class GetUserService {
       var response = await http
           .get(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
-        User _model = userFromJson(response.body);
-        return _model;
+        User model = userFromJson(response.body);
+        return model;
       }
     } catch (e) {
       log(e.toString());
@@ -54,9 +54,9 @@ class GetSharedGamesService {
       var response = await http
           .get(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
-        List<String> _users =
+        List<String> users =
             List<String>.from(json.decode(response.body).map((x) => x));
-        return _users;
+        return users;
       }
     } catch (e) {
       log(e.toString());
@@ -74,8 +74,8 @@ class GetSharedGameService {
       var response = await http
           .get(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
-        Game _model = gameFromJson(response.body);
-        return _model;
+        Game model = gameFromJson(response.body);
+        return model;
       }
     } catch (e) {
       log(e.toString());
@@ -92,9 +92,9 @@ class GetSharedListsService {
       var response = await http
           .get(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
-        List<String> _lists =
+        List<String> lists =
             List<String>.from(json.decode(response.body).map((x) => x));
-        return _lists;
+        return lists;
       }
     } catch (e) {
       log(e.toString());
@@ -112,8 +112,8 @@ class GetSharedListService {
       var response = await http
           .get(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
-        Army _model = armyFromJson(response.body);
-        return _model;
+        Army model = armyFromJson(response.body);
+        return model;
       }
     } catch (e) {
       log(e.toString());
@@ -129,9 +129,9 @@ class GetPostsService {
       var response = await http
           .get(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
-        List<String> _posts =
+        List<String> posts =
             List<String>.from(json.decode(response.body).map((x) => x));
-        return _posts;
+        return posts;
       }
     } catch (e) {
       log(e.toString());
@@ -147,8 +147,8 @@ class GetPostPictureService {
       var response = await http
           .get(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
-        Post _model = postFromJson(response.body);
-        return _model;
+        Post model = postFromJson(response.body);
+        return model;
       }
     } catch (e) {
       log(e.toString());
@@ -164,9 +164,9 @@ class GetFollowersService {
       var response = await http
           .get(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
-        List<String> _users =
+        List<String> users =
             List<String>.from(json.decode(response.body).map((x) => x));
-        return _users;
+        return users;
       }
     } catch (e) {
       log(e.toString());
@@ -183,9 +183,9 @@ class GetFollowedUsersService {
       var response = await http
           .get(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
-        List<String> _users =
+        List<String> users =
             List<String>.from(json.decode(response.body).map((x) => x));
-        return _users;
+        return users;
       }
     } catch (e) {
       log(e.toString());

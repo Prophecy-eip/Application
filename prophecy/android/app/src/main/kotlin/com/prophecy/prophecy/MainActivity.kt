@@ -1,4 +1,4 @@
-package com.example.prophecy
+package com.prophecy.prophecy
 
 import io.flutter.embedding.android.FlutterActivity
 

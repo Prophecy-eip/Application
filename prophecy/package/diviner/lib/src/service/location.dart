@@ -66,9 +66,9 @@ class GetLocationsService {
       var response = await http
           .get(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
-        List<String> _locations =
+        List<String> locations =
             List<String>.from(json.decode(response.body).map((x) => x));
-        return _locations;
+        return locations;
       }
     } catch (e) {
       log(e.toString());
@@ -84,8 +84,8 @@ class GetLocationService {
       var response = await http
           .get(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
-        Location _model = locationFromJson(response.body);
-        return _model;
+        Location model = locationFromJson(response.body);
+        return model;
       }
     } catch (e) {
       log(e.toString());
@@ -103,9 +103,9 @@ class GetLocationEventsService {
       var response = await http
           .get(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
-        List<String> _events =
+        List<String> events =
             List<String>.from(json.decode(response.body).map((x) => x));
-        return _events;
+        return events;
       }
     } catch (e) {
       log(e.toString());

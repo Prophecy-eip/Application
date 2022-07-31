@@ -117,9 +117,9 @@ class GetTeamsService {
       var response = await http
           .get(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
-        List<String> _teams =
+        List<String> teams =
             List<String>.from(json.decode(response.body).map((x) => x));
-        return _teams;
+        return teams;
       }
     } catch (e) {
       log(e.toString());
@@ -135,8 +135,8 @@ class GetTeamService {
       var response = await http
           .get(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
-        Team _model = teamFromJson(response.body);
-        return _model;
+        Team model = teamFromJson(response.body);
+        return model;
       }
     } catch (e) {
       log(e.toString());
@@ -154,8 +154,8 @@ class GetMessagesService {
       var response = await http
           .get(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
-        List<Message> _model = messagesFromJson(response.body);
-        return _model;
+        List<Message> model = messagesFromJson(response.body);
+        return model;
       }
     } catch (e) {
       log(e.toString());

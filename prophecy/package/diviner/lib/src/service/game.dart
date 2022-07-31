@@ -77,9 +77,9 @@ class GetGamesService {
       var response = await http
           .get(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
-        List<String> _games =
+        List<String> games =
             List<String>.from(json.decode(response.body).map((x) => x));
-        return _games;
+        return games;
       }
     } catch (e) {
       log(e.toString());
@@ -95,8 +95,8 @@ class GetGameService {
       var response = await http
           .get(url, headers: {'Authorization': 'Bearer $bearerToken'});
       if (response.statusCode == 200) {
-        Game _model = gameFromJson(response.body);
-        return _model;
+        Game model = gameFromJson(response.body);
+        return model;
       }
     } catch (e) {
       log(e.toString());

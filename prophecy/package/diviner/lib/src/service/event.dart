@@ -98,8 +98,8 @@ class GetEventService {
         headers: {'Authorization': 'Bearer $bearerToken'},
       );
       if (response.statusCode == 200) {
-        Event _model = eventFromJson(response.body);
-        return _model;
+        Event model = eventFromJson(response.body);
+        return model;
       }
     } catch (e) {
       log(e.toString());
@@ -123,9 +123,9 @@ class GetEventsService {
         headers: {'Authorization': 'Bearer $bearerToken'},
       );
       if (response.statusCode == 200) {
-        List<String> _events =
+        List<String> events =
             List<String>.from(json.decode(response.body).map((x) => x));
-        return _events;
+        return events;
       }
     } catch (e) {
       log(e.toString());
@@ -149,9 +149,9 @@ class GetSavedEventsService {
         headers: {'Authorization': 'Bearer $bearerToken'},
       );
       if (response.statusCode == 200) {
-        List<String> _events =
+        List<String> events =
             List<String>.from(json.decode(response.body).map((x) => x));
-        return _events;
+        return events;
       }
     } catch (e) {
       log(e.toString());

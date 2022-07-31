@@ -14,8 +14,8 @@ class GetProphecyService {
         headers: {'Authorization': 'Bearer $bearerToken'},
       );
       if (response.statusCode == 200) {
-        Prophecy _model = prophecyFromJson(response.body);
-        return _model;
+        Prophecy model = prophecyFromJson(response.body);
+        return model;
       }
     } catch (e) {
       log(e.toString());
@@ -33,8 +33,8 @@ class GetHistoryService {
         headers: {'Authorization': 'Bearer $bearerToken'},
       );
       if (response.statusCode == 200) {
-        List<Prophecy> _model = prophecyHistoryFromJson(response.body);
-        return _model;
+        List<Prophecy> model = prophecyHistoryFromJson(response.body);
+        return model;
       }
     } catch (e) {
       log(e.toString());
